@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ing. Eduardo González Gabaldón | Consultoría Industrial y Mantenimiento</title>
+  <meta name="description" content="Consultoría industrial, mantenimiento, mejora de procesos, metrología, seguridad industrial y capacitación técnica por el Ing. Eduardo González Gabaldón." />
+  <style>
+    :root{
+      --navy:#0f2742;
+      --navy-2:#183d63;
+      --steel:#5d6f82;
+      --light:#f5f7fa;
+      --white:#ffffff;
+      --accent:#e0a528;
+      --accent-soft:#fff2cc;
+      --text:#1f2933;
+      --muted:#66788a;
+      --border:#d9e2ec;
+      --shadow:0 18px 40px rgba(15,39,66,.14);
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:Inter, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:var(--light);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none;}
+    .container{width:min(1120px,92%); margin:0 auto;}
+
+    header{
+      background:rgba(15,39,66,.96);
+      color:var(--white);
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .nav{
+      min-height:72px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      font-weight:750;
+      letter-spacing:.2px;
+    }
+    .brand small{
+      color:rgba(255,255,255,.72);
+      font-weight:500;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+      font-size:.72rem;
+    }
+    .navlinks{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      font-size:.94rem;
+      color:rgba(255,255,255,.82);
+    }
+    .navlinks a:hover{color:var(--accent);}
+    .nav-cta{
+      background:var(--accent);
+      color:#1a1a1a;
+      padding:10px 16px;
+      border-radius:999px;
+      font-weight:700;
+    }
+
+    .hero{
+      background:
+        linear-gradient(135deg,rgba(15,39,66,.96),rgba(24,61,99,.9)),
+        radial-gradient(circle at top right,rgba(224,165,40,.25),transparent 35%);
+      color:var(--white);
+      padding:78px 0 58px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:42px;
+      align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.18);
+      color:rgba(255,255,255,.88);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:.9rem;
+      margin-bottom:18px;
+    }
+    .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block;}
+    h1{
+      font-size:clamp(2.15rem,5vw,4rem);
+      line-height:1.03;
+      margin:0 0 18px;
+      letter-spacing:-1.4px;
+    }
+    .hero p.lead{
+      font-size:1.18rem;
+      color:rgba(255,255,255,.86);
+      max-width:690px;
+      margin:0 0 26px;
+    }
+    .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 18px;
+      border-radius:12px;
+      font-weight:750;
+      border:1px solid transparent;
+    }
+    .btn-primary{background:var(--accent); color:#141414;}
+    .btn-secondary{border-color:rgba(255,255,255,.28); color:var(--white);}
+    .hero-card{
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    .photo-placeholder{
+      min-height:310px;
+      border:2px dashed rgba(255,255,255,.32);
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:rgba(255,255,255,.72);
+      padding:28px;
+      background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+    }
+    .quick-facts{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    .fact{
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:16px;
+      padding:14px;
+    }
+    .fact b{display:block;font-size:1.2rem;color:var(--accent);}
+    .fact span{display:block;font-size:.86rem;color:rgba(255,255,255,.77);}
+
+    section{padding:72px 0;}
+    .section-title{
+      max-width:780px;
+      margin-bottom:30px;
+    }
+    .section-title span{
+      color:var(--accent);
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.78rem;
+    }
+    h2{
+      font-size:clamp(1.7rem,3.4vw,2.6rem);
+      line-height:1.12;
+      margin:8px 0 12px;
+      letter-spacing:-.6px;
+      color:var(--navy);
+    }
+    .section-title p{color:var(--muted); margin:0; font-size:1.04rem;}
+
+    .story{
+      background:var(--white);
+    }
+    .story-grid{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:32px;
+      align-items:start;
+    }
+    .profile-card{
+      background:var(--light);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:0 10px 26px rgba(15,39,66,.07);
+    }
+    .profile-photo{
+      height:230px;
+      border:2px dashed #b8c6d6;
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:var(--muted);
+      padding:20px;
+      margin-bottom:18px;
+      background:#fff;
+    }
+    .profile-card ul{padding-left:20px; margin:12px 0 0; color:var(--steel);}
+    .narrative{
+      background:linear-gradient(180deg,#fff,#f9fbfd);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:30px;
+      box-shadow:0 10px 26px rgba(15,39,66,.07);
+    }
+    .narrative p:first-child{margin-top:0;}
+    .quote{
+      border-left:5px solid var(--accent);
+      background:var(--accent-soft);
+      padding:18px 20px;
+      border-radius:14px;
+      margin:24px 0 0;
+      color:#4c3a0a;
+      font-weight:650;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .service{
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:0 10px 26px rgba(15,39,66,.07);
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .icon{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      background:var(--navy);
+      color:var(--accent);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      font-size:1.15rem;
+      margin-bottom:8px;
+    }
+    .service h3{margin:0; color:var(--navy); font-size:1.16rem;}
+    .service p{margin:0; color:var(--muted); font-size:.98rem;}
+
+    .teaching{
+      background:linear-gradient(135deg,#f8fafc,#eef4f9);
+    }
+    .teaching-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+    .panel{
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:0 10px 26px rgba(15,39,66,.07);
+    }
+    .panel h3{color:var(--navy); margin-top:0;}
+    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;}
+    .pill{
+      padding:8px 11px;
+      border-radius:999px;
+      background:#eef3f8;
+      border:1px solid #d7e0ea;
+      color:#32485d;
+      font-size:.9rem;
+      font-weight:650;
+    }
+
+    .experience{
+      background:var(--white);
+    }
+    .timeline{
+      display:grid;
+      gap:14px;
+      border-left:3px solid var(--border);
+      padding-left:22px;
+    }
+    .timeline-item{
+      position:relative;
+      background:#fbfdff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px 20px;
+    }
+    .timeline-item::before{
+      content:"";
+      position:absolute;
+      left:-32px;
+      top:22px;
+      width:15px;
+      height:15px;
+      border-radius:50%;
+      background:var(--accent);
+      border:3px solid var(--white);
+      box-shadow:0 0 0 2px var(--border);
+    }
+    .timeline-item b{color:var(--navy);}
+    .timeline-item span{display:block;color:var(--muted);font-size:.92rem;margin-top:2px;}
+
+    .contact{
+      background:linear-gradient(135deg,var(--navy),var(--navy-2));
+      color:var(--white);
+    }
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr .9fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    .contact h2{color:var(--white);}
+    .contact p{color:rgba(255,255,255,.78);}
+    .contact-card{
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:var(--radius);
+      padding:26px;
+    }
+    .contact-item{
+      padding:14px 0;
+      border-bottom:1px solid rgba(255,255,255,.14);
+    }
+    .contact-item:last-child{border-bottom:0;}
+    .contact-item small{
+      display:block;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:rgba(255,255,255,.58);
+      font-size:.72rem;
+      margin-bottom:4px;
+    }
+    .contact-item strong{font-size:1.03rem;}
+
+    footer{
+      background:#08192b;
+      color:rgba(255,255,255,.65);
+      padding:22px 0;
+      font-size:.9rem;
+    }
+    footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+
+    @media(max-width:880px){
+      .nav{align-items:flex-start; flex-direction:column; padding:16px 0;}
+      .navlinks{flex-wrap:wrap; gap:12px;}
+      .hero-grid,.story-grid,.teaching-grid,.contact-grid{grid-template-columns:1fr;}
+      .services-grid{grid-template-columns:1fr;}
+      .quick-facts{grid-template-columns:1fr;}
+      .hero{padding-top:48px;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio">
+        Ing. Eduardo González Gabaldón
+        <small>Consultoría industrial · Mantenimiento · Capacitación técnica</small>
+      </a>
+      <nav class="navlinks" aria-label="Navegación principal">
+        <a href="#semblanza">Semblanza</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#docencia">Docencia</a>
+        <a href="#experiencia">Experiencia</a>
+        <a class="nav-cta" href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Más de dos décadas resolviendo problemas reales de planta</div>
+          <h1>Consultoría técnica para mantenimiento, manufactura y mejora industrial.</h1>
+          <p class="lead">El Ing. Eduardo González Gabaldón combina experiencia directiva en mantenimiento industrial, ingeniería de procesos, herramentales y capacitación técnica para ayudar a empresas manufactureras a mejorar disponibilidad de equipos, reducir fallas crónicas y fortalecer las capacidades de sus equipos.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contacto">Solicitar diagnóstico inicial</a>
+            <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="photo-placeholder">
+            Espacio para fotografía profesional del Ing. Eduardo González Gabaldón<br><br>
+            Sugerencia: imagen en planta, taller, aula de capacitación o con equipo técnico.
+          </div>
+          <div class="quick-facts">
+            <div class="fact"><b>25+</b><span>años de trayectoria industrial</span></div>
+            <div class="fact"><b>2016</b><span>instructor de educación continua en FIME-UANL</span></div>
+            <div class="fact"><b>24/7</b><span>experiencia supervisando mantenimiento multishift</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="semblanza" class="story">
+      <div class="container story-grid">
+        <aside class="profile-card">
+          <div class="profile-photo">Espacio para retrato o fotografía de contexto profesional</div>
+          <h3>Perfil ejecutivo</h3>
+          <ul>
+            <li>Ingeniero Mecánico Industrial con especialidad en diseño de manufactura.</li>
+            <li>Especialista en mantenimiento, procesos, herramentales, metrología y seguridad industrial.</li>
+            <li>Experiencia en sectores automotriz, metalmecánico, médico, cerraduras, componentes eléctricos y manufactura.</li>
+            <li>Instructor de educación continua en programas técnicos de FIME-UANL.</li>
+          </ul>
+        </aside>
+        <div class="narrative">
+          <div class="section-title" style="margin-bottom:18px;">
+            <span>Semblanza</span>
+            <h2>Un ingeniero de planta que convierte experiencia operativa en soluciones prácticas.</h2>
+          </div>
+          <p>El Ing. Eduardo González Gabaldón es un profesional de la ingeniería industrial y mecánica con una trayectoria construida desde el piso de planta: mantenimiento correctivo, preventivo y predictivo; mejora de procesos; diseño y fabricación de herramentales; reducción de defectos; coordinación de técnicos; administración de presupuestos; gestión de proveedores; y capacitación de equipos técnicos.</p>
+          <p>A lo largo de su carrera ha ocupado posiciones de responsabilidad en empresas manufactureras nacionales e internacionales, incluyendo áreas automotrices, metalmecánicas, médicas y de productos industriales. Su experiencia le permite entender tanto la urgencia operativa de una línea detenida como la importancia estratégica de prevenir fallas recurrentes, documentar procesos y formar equipos capaces de sostener la mejora.</p>
+          <p>Además de su trabajo en industria, desde 2016 participa como instructor de educación continua en la Facultad de Ingeniería Mecánica y Eléctrica de la Universidad Autónoma de Nuevo León, donde ha impartido cursos en dibujo, seguridad industrial, metrología, administración del mantenimiento, transmisión de potencia, análisis de fallas, herramientas de calidad, Core Tools y matemáticas. Esta combinación de práctica industrial y docencia técnica le permite comunicar soluciones con claridad y adaptar la capacitación a necesidades reales de operación.</p>
+          <p>Ante la salida de su empresa de Monterrey, el Ing. González Gabaldón abre una nueva etapa profesional enfocada en ofrecer servicios de consultoría, diagnóstico, mejora y capacitación para empresas que requieren conocimiento técnico confiable, aplicable y orientado a resultados.</p>
+          <div class="quote">Su propuesta de valor es directa: ayudar a las empresas a resolver problemas técnicos, fortalecer su mantenimiento y formar personal capaz de operar con mayor seguridad, calidad y eficiencia.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="container">
+        <div class="section-title">
+          <span>Servicios de consultoría</span>
+          <h2>Apoyo técnico para mejorar mantenimiento, procesos y capacidades del personal.</h2>
+          <p>Servicios pensados para empresas manufactureras, talleres, áreas de mantenimiento, producción, ingeniería, calidad y seguridad industrial.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service">
+            <div class="icon">01</div>
+            <h3>Diagnóstico de mantenimiento industrial</h3>
+            <p>Revisión de rutinas, fallas recurrentes, disponibilidad de equipos, refacciones críticas, roles del personal técnico y oportunidades para fortalecer mantenimiento preventivo y correctivo.</p>
+          </article>
+          <article class="service">
+            <div class="icon">02</div>
+            <h3>Reducción de fallas crónicas</h3>
+            <p>Análisis de causas, documentación de problemas, rediseño de componentes o fixtures, mejora de métodos y acciones prácticas para estabilizar equipos y procesos.</p>
+          </article>
+          <article class="service">
+            <div class="icon">03</div>
+            <h3>Mejora de procesos y herramentales</h3>
+            <p>Apoyo en cambios de layout, reducción de tiempos de cambio de modelo, mejora de herramentales, análisis de defectos, poka-yokes y soporte técnico a producción e ingeniería.</p>
+          </article>
+          <article class="service">
+            <div class="icon">04</div>
+            <h3>Capacitación técnica para personal operativo</h3>
+            <p>Cursos y talleres en mantenimiento, seguridad industrial, metrología, transmisión de potencia, análisis de fallas, herramientas de calidad, Core Tools, TPM y Lean Manufacturing.</p>
+          </article>
+          <article class="service">
+            <div class="icon">05</div>
+            <h3>Seguridad industrial aplicada</h3>
+            <p>Apoyo en prácticas seguras para trabajos en altura, corte y soldadura, trabajo con equipos energizados, recorridos de seguridad, investigación de incidentes y cultura preventiva.</p>
+          </article>
+          <article class="service">
+            <div class="icon">06</div>
+            <h3>Documentación y estandarización</h3>
+            <p>Desarrollo de rutinas, manuales, instructivos, formatos de mantenimiento, estándares de trabajo y materiales de capacitación adaptados a la realidad de la empresa.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="docencia" class="teaching">
+      <div class="container teaching-grid">
+        <div class="panel">
+          <div class="section-title" style="margin-bottom:14px;">
+            <span>Educación continua</span>
+            <h2>Profesor e instructor técnico en FIME-UANL.</h2>
+          </div>
+          <p>Desde 2016, el Ing. González Gabaldón participa como instructor de educación continua en la FIME-UANL, impartiendo materias para programas de Técnico CNC, Técnico en Manufactura y Técnico en Mantenimiento Industrial. Su experiencia docente permite ofrecer capacitación clara, práctica y directamente conectada con los problemas de planta.</p>
+          <div class="pill-row">
+            <span class="pill">Metrología</span>
+            <span class="pill">Seguridad industrial</span>
+            <span class="pill">Administración del mantenimiento</span>
+            <span class="pill">Transmisión de potencia</span>
+            <span class="pill">Análisis de fallas</span>
+            <span class="pill">Siete herramientas de calidad</span>
+            <span class="pill">Core Tools</span>
+            <span class="pill">Matemáticas técnicas</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Capacitación con enfoque aplicado</h3>
+          <p>La capacitación puede organizarse como curso, taller, sesión de diagnóstico o acompañamiento en piso. El objetivo no es sólo explicar conceptos, sino traducirlos en prácticas concretas: mejores rutinas, personal más seguro, técnicos con mayor criterio y procesos más estables.</p>
+          <p><strong>Formatos sugeridos:</strong></p>
+          <ul>
+            <li>Curso corto para técnicos de mantenimiento.</li>
+            <li>Taller de análisis de fallas con casos reales de la empresa.</li>
+            <li>Diagnóstico de mantenimiento con reporte ejecutivo.</li>
+            <li>Programa de capacitación mensual para personal operativo.</li>
+            <li>Acompañamiento en implementación de mejoras.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia" class="experience">
+      <div class="container">
+        <div class="section-title">
+          <span>Trayectoria</span>
+          <h2>Experiencia en manufactura, mantenimiento y procesos.</h2>
+          <p>Una carrera formada en distintas industrias, con responsabilidad sobre equipos, personal técnico, presupuestos, proveedores, mejora continua y capacitación.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item"><b>Neaton Autoproducts Manufacturing Inc.</b> · Maintenance Manager <span>Planeación y ejecución de mantenimiento de equipos de producción y edificio; mejoras de equipo, proveedores, presupuestos y eliminación de fallas crónicas.</span></div>
+          <div class="timeline-item"><b>FIME-UANL</b> · Instructor de Educación Continua <span>Docencia técnica en dibujo, seguridad industrial, metrología, mantenimiento, transmisión de potencia, análisis de fallas, calidad, Core Tools y matemáticas.</span></div>
+          <div class="timeline-item"><b>STERIS México</b> · Maintenance Supervisor <span>Mantenimiento preventivo y correctivo en equipo de producción, líneas de acabado, compresores, centros de maquinado y soporte a EHS.</span></div>
+          <div class="timeline-item"><b>GENVAMEX / Stanley Black & Decker / FANAL</b> · Ingeniería de procesos, mantenimiento y cuarto de herramientas <span>Mejora de procesos, reducción de defectos, herramentales, moldes, troqueles, ZAMAK, proyectos de ingeniería, poka-yokes y eventos Kaizen.</span></div>
+          <div class="timeline-item"><b>Delphi de México</b> · Maintenance Engineer / Process Engineer <span>Mantenimiento de maquinaria, soldadoras automáticas, línea de acabado, tornos CNC y proyectos de mejora de calidad, volumen y costo.</span></div>
+          <div class="timeline-item"><b>Stanley de Chihuahua</b> · Equipment and Machinery Maintenance Coordinator <span>Mantenimiento correctivo, preventivo y predictivo, galvanizado, tratamiento de aguas, compresores, subestaciones, boilers y capacitación interna en hidráulica, neumática y TPM.</span></div>
+          <div class="timeline-item"><b>Coilcraft de México y CAD Diseños e Ingeniería</b> · Supervisión de mantenimiento y producción <span>Mantenimiento de maquinaria, instalaciones, compresores, soporte ambiental, inventario, producción y herramientas de taller.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="contact">
+      <div class="container contact-grid">
+        <div>
+          <div class="section-title">
+            <span>Contacto</span>
+            <h2>Conversemos sobre las necesidades técnicas de su empresa.</h2>
+            <p>Para diagnósticos, capacitación, acompañamiento técnico o consultoría especializada en mantenimiento y manufactura, puede contactar directamente al Ing. Eduardo González Gabaldón.</p>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:Egonzalezgabaldon1974@hotmail.com">Enviar correo</a>
+            <a class="btn btn-secondary" href="tel:+528136189177">Llamar</a>
+          </div>
+        </div>
+        <aside class="contact-card">
+          <div class="contact-item">
+            <small>Correo electrónico</small>
+            <strong><a href="mailto:Egonzalezgabaldon1974@hotmail.com">Egonzalezgabaldon1974@hotmail.com</a></strong>
+          </div>
+          <div class="contact-item">
+            <small>Teléfono / WhatsApp</small>
+            <strong><a href="tel:+528136189177">81 36 18 91 77</a></strong>
+          </div>
+          <div class="contact-item">
+            <small>Teléfonos adicionales</small>
+            <strong>81 20 10 94 97 · 81 27 67 80 08</strong>
+          </div>
+          <div class="contact-item">
+            <small>Ubicación de referencia</small>
+            <strong>Monterrey, Nuevo León y zona metropolitana</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> Ing. Eduardo González Gabaldón. Todos los derechos reservados.</span>
+      <span>Consultoría industrial · Mantenimiento · Capacitación técnica</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
